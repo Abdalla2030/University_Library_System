@@ -1,0 +1,19 @@
+{% load static %}
+
+<form
+  onsubmit="checkForm(this);"
+  id="signupForm"
+  enctype="multipart/form-data"
+  data-valid="false"
+>
+  {% csrf_token %}
+
+  <ul id="specErrorList"></ul>
+
+  {{ form }}
+  <button type="submit">Sign up</button>
+</form>
+
+<script src="{% static 'scripts/signUpValidation.js' %}"></script>
+<script src="{% static 'scripts/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'scripts/signup.js' %}"></script>

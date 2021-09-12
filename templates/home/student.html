@@ -1,0 +1,32 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'styles/common/global.css' %}" />
+<link rel="stylesheet" href="{% static 'styles/home.css' %}" />
+<link
+  rel="stylesheet"
+  href="{% static 'styles/common/adminStudentSec.css' %}"
+/>
+
+<div class="Home">
+  {% include 'common parts/prevPage.html' with prevPageLink='/' %}
+
+  <div class="mainSec">
+    <h1>
+      <b>Welcome To</b>
+    </h1>
+    <p>University Library System</p>
+  </div>
+
+  <div class="choiceSection">
+    <div class="registerSec">
+      <div class="top">
+        <a href="{% url 'student-signup' %}"> Sign up</a>
+        <a href="{% url 'student-login' %}"> Log in</a>
+      </div>
+    </div>
+
+    <div class="adminSec">
+      <img src="{% static 'images/student.jpg' %}" width="250" height="200" />
+    </div>
+  </div>
+</div>

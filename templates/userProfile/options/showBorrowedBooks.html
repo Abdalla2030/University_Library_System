@@ -1,0 +1,46 @@
+{% extends 'userProfile/options/showBooks.html' %}
+
+<!--  -->
+{% block headerBlock %}
+<h1>Borrowed Books</h1>
+{% endblock %}
+
+<!--  -->
+{% block booksBlock %}
+<div class="books">
+  <!--  -->
+  {% if books %}
+  <!--  -->
+  {% for book in books %}
+  <div class="book">
+    <div class="front">
+      <img src="{{ book.book.image.url }}" alt="" />
+    </div>
+    <div class="back">
+      <div>Name: {{ book.book.name }}</div>
+      <div>Author: {{ book.book.author }}</div>
+      <div>Date: {{ book.book.publicationDate }}</div>
+      <div>ISPN: {{ book.book.ISPN }}</div>
+      <div>Start: {{ book.start_date }}</div>
+      <div>End: {{ book.end_date }}</div>
+
+      <span class="line"></span>
+
+      {% if type == 'admin' %}
+      <a href="{% url 'admin-return-book' id book.book.ISPN %}">Return</a>
+      <a href="{% url 'admin-extending' id book.book.ISPN %}">Extending </a>
+      {% elif type == 'student' %}
+      <a href="{% url 'student-return-book' id book.book.ISPN %}">Return</a>
+      <a href="{% url 'student-extending' id book.book.ISPN %}">Extending </a>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+  <!--  -->
+  {% else %}
+  <div id="noBooks">There are no books</div>
+  <!--  -->
+  {% endif %}
+  <!--  -->
+</div>
+{% endblock %}

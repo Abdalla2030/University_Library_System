@@ -1,0 +1,32 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles/common/bookForm.css' %}" />
+
+{% include 'common parts/prevPage.html' with prevPageLink=prevPageLink %}
+
+<div class="center">
+  <h2>Borrow Book</h2>
+  <form method="POST" onsubmit="checkBorrowBookFormValidation(this)">
+    {% csrf_token %}
+
+    <div class="info">
+      <input
+        id="periodInput"
+        type="number"
+        min="1"
+        max="30"
+        name="borrowingPeriod"
+        required
+      />
+      <span></span>
+      {% block label %}
+      <label>Borrowing Period (Day)</label>
+      {% endblock label %}
+    </div>
+
+    {% block btn %}
+    <input type="submit" value="Borrow" />
+    {% endblock btn %}
+  </form>
+</div>
+
+<!-- <script src="{% static 'scripts/formsValidation.js' %}"></script> -->

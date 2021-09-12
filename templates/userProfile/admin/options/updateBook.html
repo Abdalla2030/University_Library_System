@@ -1,0 +1,21 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles/common/bookForm.css' %}" />
+
+{% include 'common parts/prevPage.html' with prevPageLink=prevPageLink %}
+
+<div class="center">
+  <h2>Update book</h2>
+
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <!--  -->
+    {{form.non_field_errors}}
+
+    <!--  -->
+    {% include 'common parts/bookFields.html' with form=form %}
+
+    <!--  -->
+    <input type="submit" value="Update" />
+  </form>
+</div>

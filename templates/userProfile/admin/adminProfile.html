@@ -1,0 +1,38 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'styles/common/global.css' %}" />
+<link rel="stylesheet" href="{% static 'styles/home.css' %}" />
+<link rel="stylesheet" href="{% static 'styles/common/profile.css' %}" />
+
+<div class="Home">
+  {% include 'common parts/profileNavbar.html' with username=name %}
+
+  <div class="setting">
+    <div>
+      <img src="{% static 'images/addBook.png' %}" />
+      <a id="add" href="{% url 'add-book' id %}">Add a Book</a>
+    </div>
+
+    <div>
+      <img src="{% static 'images/updateBook.jpg' %}" />
+      <a id="update" href="{% url 'admin-update' id 'info' %}">Update</a>
+    </div>
+
+    <div>
+      <img src="{% static 'images/showBooks.jpg' %}" />
+      <a id="show" href="{% url 'admin-display-books' id %}">Show All Books</a>
+    </div>
+
+    <div>
+      <img src="{% static 'images/browBook.jfif' %}" />
+      <a id="show-borrowed" href="{% url 'admin-borrowed-books' id %}"
+        >Borrowed Books</a
+      >
+    </div>
+
+    <div>
+      <img src="{% static 'images/logout.jpg' %}" />
+      <a id="logout" href="{% url 'logout' %}">Logout</a>
+    </div>
+  </div>
+</div>

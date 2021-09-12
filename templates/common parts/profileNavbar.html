@@ -1,0 +1,11 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles/common/profileNavbar.css' %}" />
+
+<nav>
+  <div class="left">
+    <h1>Profile</h1>
+  </div>
+  <div class="right">
+    <h3>{{ username | capfirst }}</h3>
+  </div>
+</nav>

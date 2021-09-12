@@ -1,0 +1,42 @@
+<style>
+  .helptext,
+  #id_password,
+  label[for="id_password"] {
+    display: none;
+  }
+</style>
+
+<form method="POST">
+  {% csrf_token %}
+  <!--  -->
+  {{ form }}
+  <div>
+    <button type="submit">Update</button>
+
+    {% if userType == 'admin' %}
+    <!--  -->
+    {% if type == 'info' %}
+    <a class="switch" href="{% url 'admin-update' id 'pass' %}"
+      >Change Password</a
+    >
+    {% elif type == 'pass' %}
+    <a class="switch" href="{% url 'admin-update' id 'info' %}"
+      >Change Information</a
+    >
+    {% endif %}
+    <!--  -->
+    {% elif userType == 'student' %}
+    <!--  -->
+    {% if type == 'info' %}
+    <a class="switch" href="{% url 'student-update' id 'pass' %}"
+      >Change Password</a
+    >
+    {% elif type == 'pass' %}
+    <a class="switch" href="{% url 'student-update' id 'info' %}"
+      >Change Information</a
+    >
+    {% endif %}
+    <!--  -->
+    {% endif %}
+  </div>
+</form>

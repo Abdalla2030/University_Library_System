@@ -1,0 +1,13 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  font-family: "segoe ui light";
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100vh;
+}

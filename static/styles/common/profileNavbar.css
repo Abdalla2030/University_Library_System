@@ -1,0 +1,21 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  color: #ffc107;
+  background-color: #00000021;
+  border-bottom: 2px solid #ffc107;
+}
+
+nav .right {
+  display: flex;
+  align-items: center;
+}
+
+nav .right a {
+  border-width: 2px;
+  padding: 10px 15px;
+  font-size: 14px;
+  margin-right: 15px;
+}

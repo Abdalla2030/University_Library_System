@@ -1,0 +1,79 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles/book.css' %}" />
+
+<style>
+  .borrowedMsg {
+    text-align: center;
+    color: #dc3545;
+  }
+</style>
+
+{% include 'common parts/prevPage.html' with prevPageLink=prevPageLink %}
+
+<div class="booksContainer">
+  {% block headerBlock %}
+  <h1>Books</h1>
+  {% endblock %}
+
+  <form method="GET">
+    <div>
+      <label for="key">Search</label>
+      <input type="text" name="searchInput" />
+    </div>
+    <div>
+      <label for="searchBy">Search By</label>
+      <select name="searchOptions">
+        <option value="name">Book Name</option>
+        <option value="ispn" selected>Book ISPN</option>
+        <option value="author">Book Author</option>
+        <option value="year">Book Publication Year</option>
+      </select>
+    </div>
+    <div>
+      <button type="submit">Search</button>
+    </div>
+  </form>
+
+  {% block booksBlock %}
+  <div class="books">
+    <!--  -->
+    {% if books %}
+    <!--  -->
+    {% for book in books %}
+    <div class="book">
+      <div class="front">
+        <img src="{{ book.image.url }}" alt="" />
+      </div>
+      <div class="back">
+        <div>Name: {{ book.name }}</div>
+        <div>Author: {{ book.author }}</div>
+        <div>Date: {{ book.publicationDate }}</div>
+        <div>ISPN: {{ book.ISPN }}</div>
+
+        <span class="line"></span>
+
+        {% if book.isBorrowed == False %} {% if type == 'admin' %}
+        <a href="{% url 'admin-borrow-book' id book.ISPN %}">Borrow</a>
+        <a href="{% url 'update-book' id book.ISPN %}">Update</a>
+        <a id="deleteBook" href="{% url 'delete-book' id book.ISPN %}"
+          >Delete</a
+        >
+        {% elif type == 'student' %}
+        <a href="{% url 'student-borrow-book' id book.ISPN %}">Borrow</a>
+        {% endif %}
+        <!--  -->
+        {% else %}
+        <div class="borrowedMsg">This book is Borrowed</div>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+    <!--  -->
+    {% else %}
+    <div id="noBooks">There are no books</div>
+    <!--  -->
+    {% endif %}
+    <!--  -->
+  </div>
+  {% endblock %}
+</div>

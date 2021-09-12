@@ -1,0 +1,24 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles/common/global.css' %}" />
+<link rel="stylesheet" href="{% static 'styles/home.css' %}" />
+
+<div class="Home">
+  <div class="mainSec">
+    <h1>
+      <b>Welcome To</b>
+    </h1>
+    <p>University Library System</p>
+  </div>
+
+  <div class="choiceSection">
+    <div class="adminSec">
+      <img src="{% static 'images/admin.jpg' %}" width="250" height="200" />
+      <a id="admin" href="{% url 'admin' %}"> Admin </a>
+    </div>
+
+    <div class="studSec">
+      <img src="{% static 'images/student.jpg' %}" width="250" height="200" />
+      <a id="student" href="{% url 'student' %}"> Student </a>
+    </div>
+  </div>
+</div>

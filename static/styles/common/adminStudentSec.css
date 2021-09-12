@@ -1,0 +1,8 @@
+.choiceSection .registerSec > div:first-child {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.choiceSection .registerSec a {
+  margin: 0 25px;
+}

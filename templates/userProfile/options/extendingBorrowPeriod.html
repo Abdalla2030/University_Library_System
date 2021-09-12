@@ -1,0 +1,14 @@
+{% extends 'userProfile/options/borrowBook.html' %}
+
+<!--  -->
+{% include 'common parts/prevPage.html' with prevPageLink=prevPageLink %}
+
+<!--  -->
+{% block label %}
+<label>Extension period (Day)</label>
+{% endblock label %}
+
+<!--  -->
+{% block btn %}
+<input type="submit" value="Extending" />
+{% endblock btn %}

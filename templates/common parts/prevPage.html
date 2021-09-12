@@ -1,0 +1,24 @@
+{% load static %}
+
+<style>
+  .prevPageLink {
+    display: block;
+    position: absolute;
+    text-decoration: none;
+    font-size: 30px;
+    top: 15px;
+    left: 15px;
+  }
+
+  .prevPageLinkImg {
+    width: 35px;
+  }
+</style>
+
+<a href="{{ prevPageLink }}" class="prevPageLink">
+  <img
+    class="prevPageLinkImg"
+    src="{% static 'icons/arrow-alt-circle-left-solid.svg' %}"
+    alt=""
+  />
+</a>
